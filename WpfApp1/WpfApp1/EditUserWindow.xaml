@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp1.EditUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="EditUserWindow" Height="450" Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="633*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="TextBoxEditName" Text="имя" Grid.Row="0"></TextBlock>
+        <TextBox Text="{Binding name}" Grid.Row="0" Grid.Column="1"></TextBox>
+
+        <TextBlock Text="статус" Grid.Row="1"></TextBlock>
+        <ComboBox SelectedItem="{Binding status}" x:Name="ComboBoxEditStatus" Grid.Row="1" Grid.Column="1" SelectionChanged="ComboEditStatus_SelectionChanged"></ComboBox>
+
+        <TextBlock Text="роль" Grid.Row="2"></TextBlock>
+        <ComboBox x:Name="ComboBoxEditRole" Grid.Row="2" Grid.Column="1"></ComboBox>
+
+        <Button Grid.Column="1" Content="Сохранить" HorizontalAlignment="Left" Margin="129,27,0,0" Grid.Row="4" VerticalAlignment="Top" Height="50" Width="228" Click="Button_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Center" Margin="0,27,0,0" Grid.Row="4" VerticalAlignment="Top" Height="50" Width="147" Click="Button_Back_Click"/>
+    </Grid>
+</Window>

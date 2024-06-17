@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище abobaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "aboba.dbo.Abobus" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Abobus">
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="password" Type="nvarchar(max)" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "aboba.dbo.Users" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="login" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="Хранилище abobaModelContainer">
+    <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Users].[name] AS [name], 
+    [Users].[password] AS [password], 
+    [Users].[login] AS [login]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
